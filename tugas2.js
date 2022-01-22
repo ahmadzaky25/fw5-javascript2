@@ -23,8 +23,8 @@ function searchName (kataKunci, limit, cb) {
     // untuk merubah katakunci jadi lowercase
     let keyword = kataKunci.toLowerCase()
 
-    //fungsi saring untuk jadi callback di fungsi filter (result)
-    function saring (el) { //parameter el untuk merepresentasi tiap elemen yang ada dalam name      
+    //fungsi filtering untuk jadi callback di fungsi filter (result)
+    function filtering (el) { //parameter el untuk merepresentasi tiap elemen yang ada dalam name      
         let namaKecil = el.toLowerCase() //merubah elemen menjadi lowercase
         //namaKecil ini akan menampung nilai yang sudah dilowercase
         //Contoh : Abigail = abigail
@@ -36,13 +36,13 @@ function searchName (kataKunci, limit, cb) {
         return (kata)
     }
 
-    const result = name.filter(saring) 
-    const final = result.slice(0, limit)
+    const result = name.filter(filtering) 
+    const final = result.slice(0, limit) //memotong array dari index ke 0 sampai limit ditentukan
 
-    cb (final)
+    cb (final) //menampung nilai yang sudah disaring
 }
 
-function printFinal(hasil) {
+function printFinal(hasil) { //memanggil callback 
     console.log(hasil);
 }
 
